@@ -1,19 +1,62 @@
 // fonts
 @import url("https://fonts.googleapis.com/css2?family=Quicksand&family=Rubik:ital,wght@0,300;1,300&display=swap");
 // css reset
-// *,
-// *::before,
-// *::after {
-//   margin: 0;
-//   padding: 0;
-//   box-sizing: border-box;
-//   text-decoration: none;
-//   outline: none;
-//   border: none;
-// }
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+}
 body {
   font-family: "Quicksand", sans-serif;
   font-family: "Rubik", sans-serif;
   font-weight: 700;
+  font-size: 20px;
 }
 // styles
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  .keyboard {
+    display: flex;
+    section {
+      button {
+        padding: 20px;
+        font-size: 30px;
+        background-color: #e1edf5;
+        transition: all 0.3s;
+        cursor: pointer;
+        &:hover {
+          background-color: #c4cfd7;
+          transition: all 0.3s;
+        }
+      }
+    }
+  }
+  .operators {
+    display: flex;
+    flex-direction: column;
+    section {
+      display: flex;
+      flex-direction: column;
+      button {
+        padding: 10px;
+        font-size: 19.3px;
+        background-color: #e1edf5;
+        transition: all 0.3s;
+        cursor: pointer;
+        &:hover {
+          background-color: #c4cfd7;
+          transition: all 0.3s;
+        }
+      }
+    }
+  }
+}
