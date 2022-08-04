@@ -85,11 +85,8 @@ const App = () => {
                 <button onClick={() => handleClick(3)}>3</button>
               </div>
 
-              <button style={{ width: "113px" }} onClick={() => handleClick(0)}>
+              <button style={{ width: "100%" }} onClick={() => handleClick(0)}>
                 0
-              </button>
-              <button style={{ width: "57px" }} onClick={() => handleClick(0)}>
-                .
               </button>
             </section>
           </div>
