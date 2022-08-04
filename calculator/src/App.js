@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const App = () => {
-  const [display, setDisplay] = useState("");
+  const [display, setDisplay] = useState(0);
   const [activities, setActivities] = useState([]);
   // handle states values
   const handleClick = (val) => {
@@ -24,9 +24,9 @@ const App = () => {
             return (acc += array[index + 1]);
           case "-":
             return (acc -= array[index + 1]);
-          case "*":
+          case "x":
             return (acc *= array[index + 1]);
-          case "/":
+          case "÷":
             return (acc /= array[index + 1]);
           default:
             return acc;
@@ -36,13 +36,31 @@ const App = () => {
     setDisplay(result);
     setActivities("");
   };
+  // clear all (AC button)
+  const AllClear = () => {
+    setActivities("");
+    setDisplay(0);
+  };
+  // clear last value (CE button)
+  const ClearHandle = () => {
+    if (activities.length === 1 && display != 0) {
+      setDisplay(0);
+      setActivities([]);
+    } else {
+      // if (activities.join("").substring(0, activities.length - 1)) {
+      //   console.log(!!activities.join("").substring(0, activities.length - 1));
+      //   const newVal = activities.join("").substring(0, activities.length - 1);
+      //   setActivities(newVal);
+      // }
+    }
+  };
 
   return (
     <div>
       {/* last state */}
       <h4>{display}</h4>
 
-      <span>test</span>
+      <span>{activities}</span>
       {/* keyboard */}
       <section>
         {/* numbers */}
@@ -63,11 +81,13 @@ const App = () => {
         </section>
         {/* operators */}
         <section className="operators">
-          <button onClick={() => handleClick("/")}>/</button>
-          <button onClick={() => handleClick("*")}>*</button>
+          <button onClick={() => handleClick("÷")}>÷</button>
+          <button onClick={() => handleClick("x")}>x</button>
           <button onClick={() => handleClick("-")}>-</button>
           <button onClick={() => handleClick("+")}>+</button>
-          <button onClick={calculateHandle}>=</button>
+          <button onClick={() => AllClear()}>AC</button>
+          <button onClick={() => ClearHandle()}>C</button>
+          <button onClick={() => calculateHandle()}>=</button>
         </section>
       </section>
     </div>
