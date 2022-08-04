@@ -1,14 +1,6 @@
 // fonts
-@font-face {
-  font-family: "calculator";
-  src: url("/calculator/src/assets/fonts/digital-7.woff") format("woff"),
-    url("/calculator/src/assets/fonts/digital-7 (mono).woff") format("woff"),
-    url("/calculator/src/assets/fonts/digital-7 (mono italic).woff")
-      format("woff"),
-    url("/calculator/src/assets/fonts/digital-7 (italic).woff") format("woff");
-}
-// css reset
-*,
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&family=Rubik:ital,wght@0,300;1,300&display=swap");
+// css reset *,
 *::before,
 *::after {
   margin: 0;
@@ -19,6 +11,8 @@
   border: none;
 }
 body {
-  font-family: calculator;
+  font-family: "Quicksand", sans-serif;
+  font-family: "Rubik", sans-serif;
+  font-weight: 700;
 }
 // styles
