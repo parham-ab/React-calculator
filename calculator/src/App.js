@@ -43,15 +43,14 @@ const App = () => {
   };
   // clear last value (CE button)
   const ClearHandle = () => {
-    if (activities.length === 1 && display != 0) {
+    let allActivities = activities.join("");
+    if (allActivities.length === 1 && display != 0) {
       setDisplay(0);
       setActivities([]);
-    } else {
-      // if (activities.join("").substring(0, activities.length - 1)) {
-      //   console.log(!!activities.join("").substring(0, activities.length - 1));
-      //   const newVal = activities.join("").substring(0, activities.length - 1);
-      //   setActivities(newVal);
-      // }
+    } else if (allActivities.length > 1) {
+      let newVal = allActivities.substring(0, allActivities.length - 1);
+      setActivities(newVal);
+      setDisplay(newVal.slice(-1));
     }
   };
 
@@ -86,7 +85,7 @@ const App = () => {
           <button onClick={() => handleClick("-")}>-</button>
           <button onClick={() => handleClick("+")}>+</button>
           <button onClick={() => AllClear()}>AC</button>
-          <button onClick={() => ClearHandle()}>C</button>
+          <button onClick={ClearHandle}>C</button>
           <button onClick={() => calculateHandle()}>=</button>
         </section>
       </section>
