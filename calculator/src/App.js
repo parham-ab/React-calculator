@@ -9,6 +9,33 @@ const App = () => {
     setActivities([...activities, val]);
   };
   // calculate function
+  const calculateHandle = () => {
+    const result = activities
+      // extract from array
+      .join("")
+      // group numbers together & separate them from operators
+      .split(/(\D)/g)
+      // if data was number inside quotation convert it to number
+      .map((item) => (item.match(/\d/g) ? parseInt(item, 0) : item))
+      // calculate based on entered operator
+      .reduce((acc, value, index, array) => {
+        switch (value) {
+          case "+":
+            return (acc += array[index + 1]);
+          case "-":
+            return (acc -= array[index + 1]);
+          case "*":
+            return (acc *= array[index + 1]);
+          case "/":
+            return (acc /= array[index + 1]);
+          default:
+            return acc;
+        }
+      });
+    // display results
+    setDisplay(result);
+    setActivities("");
+  };
 
   return (
     <div>
@@ -40,7 +67,7 @@ const App = () => {
           <button onClick={() => handleClick("*")}>*</button>
           <button onClick={() => handleClick("-")}>-</button>
           <button onClick={() => handleClick("+")}>+</button>
-          <button onClick={() => handleClick("=")}>=</button>
+          <button onClick={calculateHandle}>=</button>
         </section>
       </section>
     </div>
